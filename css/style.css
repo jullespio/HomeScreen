@@ -79,7 +79,7 @@ body {
   height: 25px;
 }
 
-#settingsButton {
+/* #settingsButton {
   position: absolute;
   margin: 2em 2em 0 0;
   right: 0;
@@ -93,7 +93,7 @@ body {
 #settingsButton__icon {
   width: 25px;
   height: 25px;
-}
+} */
 
 .container {
   width: 145vh;
