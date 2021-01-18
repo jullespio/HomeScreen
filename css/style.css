@@ -68,7 +68,7 @@ body {
   margin: 2em 2em 0 0;
   right: 30px;
   top: 0;
-  /*color: var(--fg);*/
+  color: var(--fg);
   color: red;
   border: none;
   cursor: pointer;
