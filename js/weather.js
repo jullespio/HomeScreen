@@ -23,13 +23,15 @@ function setPosition(position) {
   // You can use https://www.latlong.net/ to get it! (I use San Francisco as an example)
   let latitude = 0.035850;
   let longitude = -51.062210;
+  let city = 'Macapá'
 
   getWeather(latitude, longitude);
 }
 
 // Get the Weather data
 function getWeather(latitude, longitude) {
-  let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
+  let api = `https://api.openweathermap.org/data/2.5/weather?q={city}&appid={key}`;
+  
 
   console.log(api);
 
