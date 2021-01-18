@@ -18,9 +18,9 @@
 
   /* Image background  */
 
-  /* Uncoment this section to get the 
-    image wallpaper. You can also 
-    change the --imgcol value 
+  /* Uncoment this section to get the
+    image wallpaper. You can also
+    change the --imgcol value
     to make the filter to your own */
 
   /* --imgbg: url(/img/wal.jpg); */
@@ -68,13 +68,30 @@ body {
   margin: 2em 2em 0 0;
   right: 0;
   top: 0;
-  color: var(--fg);
+  /*color: var(--fg);*/
+  color: red;
   border: none;
   cursor: pointer;
   background-color: #00000000;
 }
 
 #themeButton__icon {
+  width: 25px;
+  height: 25px;
+}
+
+#settingsButton {
+  position: absolute;
+  margin: 2em 2em 0 0;
+  right: 0;
+  top: 0;
+  color: var(--fg);
+  border: none;
+  cursor: pointer;
+  background-color: #00000000;
+}
+
+#settingsButton__icon {
   width: 25px;
   height: 25px;
 }
