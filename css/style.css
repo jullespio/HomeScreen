@@ -23,7 +23,7 @@
     change the --imgcol value
     to make the filter to your own */
 
-  --imgbg: url(img/space.jpg);
+  --imgbg: url(img/sky.jpg);
   
   --imgcol: linear-gradient(
     rgba(255, 255, 255, 0.7),
