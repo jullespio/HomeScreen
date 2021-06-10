@@ -23,7 +23,7 @@
     change the --imgcol value
     to make the filter to your own */
 
-  --imgbg: url(/HomeScreen/img/flowers.jpg);
+  --imgbg: url(/HomeScreen/img/star_trek_holodeck.jpg);
 
   --imgcol: linear-gradient(
     rgba(255, 255, 255, 0.7),
