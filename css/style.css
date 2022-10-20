@@ -59,7 +59,7 @@ body {
   height: 100vh;
   background-color: var(--bg);
   background-image: var(--imgcol), var(--imgbg);
-  background-size: contain; ## new addition
+  background-size: cover; ## new addition
   display: flex;
   align-items: center;
   justify-content: center;
