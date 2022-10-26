@@ -37,6 +37,7 @@
   --bg: #19171a; /* Background color */
   --sbg: #201e21; /* Cards color */
   --fg: #d8dee9; /* Foreground color */
+  --tp: rgba(0, 0, 0, 0.0); 
   --sfg: #3a3a3a; /* Secondary Foreground color */
   --imgcol: linear-gradient(
     rgba(0, 0, 0, 0.7),
@@ -107,14 +108,19 @@ body {
 }
 
 .card {
+  background-color: var(--tp);
+/*
   background-color: var(--sbg);
   box-shadow: 0 5px 7px rgba(0, 0, 0, 0.35);
   border-radius: 5px;
+*/
 }
+/*
 .card:hover {
   transform: translateY(-0.2rem);
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.35);
 }
+*/
 
 .timeBlock {
   grid-row: 1 / span 2;
@@ -208,6 +214,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
+  background-color: var(--tp);
 }
 
 .buttonLink__icon {
