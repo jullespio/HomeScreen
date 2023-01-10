@@ -1,6 +1,6 @@
 /*@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap"); */
 
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap');
 
 /* V A R I A B L E S */
 
@@ -55,7 +55,8 @@
   padding: 0;
   box-sizing: border-box;
 /*   font-family: "Open Sans", sans-serif; */
-  font-family: "VT323", sans-serif;
+/*   font-family: "VT323", sans-serif; */
+  font-family: "Share Tech Mono", sans-serif;
   transition: 0.2s ease-in-out;
 }
 
