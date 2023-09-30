@@ -29,6 +29,7 @@
     to make the filter to your own */
 
   --imgbg: url(/HomeScreen/img/andromeda.jpg);
+    background-size: cover;
 
   --imgcol: linear-gradient(
     rgba(255, 255, 255, 0.7),
