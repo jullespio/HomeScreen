@@ -28,7 +28,7 @@
     change the --imgcol value
     to make the filter to your own */
 
-  --imgbg: url(/HomeScreen/img/spacetime-distortion.png);
+  --imgbg: url(../img/ngc1566_16x9.png);
 
   --imgcol: linear-gradient(
     rgba(255, 255, 255, 0.7),
