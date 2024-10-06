@@ -13,7 +13,7 @@ function calculateStardate() {
     stardate = stardate / 10;
     //document.write("Today is Stardate " + stardate);
 
-    return "- STARDATE " + stardate + " -";
+    return "[ STARDATE " + stardate + " ]";
 
 }
 
