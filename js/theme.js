@@ -34,7 +34,7 @@ themeToggle.addEventListener("click", () => {
   }
 });
 
-// Theme accordint the hour
+// Theme according to the hour
 
 /*
 const today = new Date();

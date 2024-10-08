@@ -9,13 +9,15 @@
 :root {
   /* Fonts  */
   --fsg: 135px; /* Time and Greetings */
-  --fsm: 75px; /* Date */
+  --fsm: 50px; /* Date */
+  --fsd: 25px; /* Stardate (CUSTOM)*/
+  --fse: 20px; /* (CUSTOM)*/
   --fss: 25px; /* Greetings and Weather widger */
   --fses: 16px; /* Links List */
 
   /* Light theme  */
   --accent: #654bc4; /* Hover color */
-  --bg: #f5f5f5; /* Background color */
+  --bg: #E0C6A496; /* Background color */
   --sbg: #e4e6e6; /* Cards color */
   --fg: #3a3a3a; /* Foreground color */
   --tp: rgba(0, 0, 0, 0.0); 
@@ -39,9 +41,9 @@
 /* Dark theme  */
 .darktheme {
   --accent: #654bc4; /* Hover color */
-  --bg: #19171a; /* Background color */
+  --bg: #1D1520D3; /* Background color */
   --sbg: #201e21; /* Cards color */
-  --fg: #d8dee9; /* Foreground color */
+  --fg: #DBCDA6; /* Foreground color */
   --tp: rgba(0, 0, 0, 0.0); 
   --sfg: #3a3a3a; /* Secondary Foreground color */
   --imgcol: linear-gradient(
@@ -149,6 +151,12 @@ body {
   align-items: center;
   justify-content: center;
 }
+/* .weatherBlock__stardate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+} */
 .weatherBlock__date {
   display: flex;
   align-items: center;
@@ -159,6 +167,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 30px;
 }
 
 .clock {
@@ -176,8 +185,21 @@ body {
 }
 
 #month,
-#day {
+#day,
+#year{
   font-size: var(--fsm);
+  font-weight: bold;
+  color: var(--fg);
+}
+
+#stardate {
+  font-size: var(--fsd);
+  font-weight: bold;
+  color: var(--fg);  
+}
+
+#earth {
+  font-size: var(--fse);
   font-weight: bold;
   color: var(--fg);
 }
@@ -189,6 +211,13 @@ body {
 #greetings {
   font-size: var(--fss);
   color: var(--fg);
+} 
+
+
+#greetings_stardate {
+  font-size: var(--fse);
+  color: var(--fg);
+  margin-top: 10px;
 }
 
 .weather-icon img {

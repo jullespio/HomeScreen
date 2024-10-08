@@ -19,6 +19,7 @@ function displayClock() {
   var format_12hour = false;
 
   var d = new Date();
+  var yy = d.getFullYear();
   var mm = monthNames[d.getMonth()];
   var dd = d.getDate();
   var min = (mins = ('0' + d.getMinutes()).slice(-2));
@@ -35,8 +36,11 @@ function displayClock() {
   document.getElementById('separator').innerHTML = ' : ';
   document.getElementById('minutes').innerText = min + ampm;
 
+  document.getElementById('earth').innerText = "On Earth: ";
+
   document.getElementById('month').innerText = mm;
   document.getElementById('day').innerText = dd;
+  document.getElementById('year').innerText = ', ' + yy;
 
   setTimeout(displayClock, 1000);
 }
