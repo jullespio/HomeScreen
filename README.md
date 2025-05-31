@@ -5,9 +5,9 @@
   <sub>Forked and customized from <a href="https://github.com/MiguelRAvila/Bento">Bento by Miguel R. Avila</a></sub>
 </div>
 
-<p align="center">
+<!-- <p align="center">
   <img src="https://github.com/MiguelRAvila/Bento/blob/master/assets/Header.png" alt="Project preview">
-</p>
+</p> -->
 
 ## Overview
 
