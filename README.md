@@ -73,7 +73,7 @@ For more information on customization, check the links below.
 
 - Original project: [Bento by Miguel R. Avila](https://github.com/MiguelRAvila/Bento)
 - Icons: [Feather Icons](https://feathericons.com/)
-- Wallpaper and visuals as credited in original repo. This fork uses wallpapers meant for personal use, you might keep them or use your own. Just add the images on the /img folder and redeploy.
+- Wallpaper and visuals as credited in original repo. This fork uses wallpapers meant for personal use, you might keep them or use your own. Just add the images to the /img folder and edit the background variable at the top of `style.css`.
 
 ---
 
