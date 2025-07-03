@@ -30,9 +30,8 @@
     change the --imgcol value
     to make the filter to your own */
 
-  /* --imgbg: url(../img/WASP-43_b_concept.jpg); */
-  /* --imgbg: url(../img/skyrim.png); */
-    --imgbg: url(../img/flower.jpg);
+  --imgbg: url(../img/woman.jpg);
+  /* --imgbg: url(../img/flowers/flower4.jpg); */
 
   --imgcol: linear-gradient(
     rgba(255, 255, 255, 0.7),
