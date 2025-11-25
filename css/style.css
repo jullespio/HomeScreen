@@ -31,7 +31,8 @@
     to make the filter to your own */
 
   /* --imgbg: url(../img/barman.jpg); */
-  --imgbg: url(../img/feet.jpg);
+  /* --imgbg: url(../img/feet.jpg); */
+  --imgbg: url(../img/pom.jpg);
 
   --imgcol: linear-gradient(
     rgba(255, 255, 255, 0.7),
