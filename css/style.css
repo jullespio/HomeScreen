@@ -30,7 +30,8 @@
     change the --imgcol value
     to make the filter to your own */
 
-  --imgbg: url(../img/pom.jpg);
+  --imgbg: url(../img/barman.jpg);
+  /* --imgbg: url(../img/pom.jpg); */
   /* --imgbg: url(../img/flowers/flower4.jpg); */
 
   --imgcol: linear-gradient(
