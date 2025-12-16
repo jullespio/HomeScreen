@@ -1,25 +1,24 @@
-// Get the hour
-const today = new Date();
-const hour = today.getHours();
+function setGreeting() {
+    const today = new Date();
+    const hour = today.getHours();
+    const user = config.user;
 
-// Here you can change your name
-const user = 'Captain.';
+    const greetings = {
+        0: 'Go to sleep, ',
+        5: 'Good morning, ',
+        12: 'Good afternoon, ',
+        18: 'Good evening, ',
+        23: 'Go to sleep, '
+    };
 
-// Here you can change your greetings
-const gree1 = 'Go to sleep,  ';
-const gree2 = 'Good morning,  ';
-const gree3 = 'Good afternoon,  ';
-const gree4 = 'Good evening,  ';
-const gree5 = 'Good evening,  ';
-const gree6 = 'Good evening,  ';
+    let greeting = '';
+    for (const time in greetings) {
+        if (hour >= time) {
+            greeting = greetings[time];
+        }
+    }
 
-// Define the hours of the greetings
-if (hour >= 23 && hour < 5) {
-  document.getElementById('greetings').innerText = gree1 + user;
-} else if (hour >= 6 && hour < 12) {
-  document.getElementById('greetings').innerText = gree2 + user;
-} else if (hour >= 12 && hour < 18) {
-  document.getElementById('greetings').innerText = gree3 + user;
-} else {
-  document.getElementById('greetings').innerText = gree4 + user;
+    document.getElementById('greetings').innerText = greeting + user;
 }
+
+setGreeting();
