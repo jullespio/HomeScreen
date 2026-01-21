@@ -13,8 +13,8 @@ const config = {
             icon: 'github'
         },
         {
-            name: 'Outlook',
-            url: 'https://outlook.live.com/mail/inbox',
+            name: 'Tutanota',
+            url: 'https://app.tuta.com',
             icon: 'at-sign'
         },
         {
@@ -41,11 +41,12 @@ const config = {
     lists: [
         {
             links: [
+                { name: 'Gemini', url: 'https://gemini.google.com' },
+                { name: 'myNoise', url: 'https://mynoise.net' },
                 { name: 'Behance', url: 'https://www.behance.net' },
-                { name: 'Reddit', url: 'https://www.reddit.com' },
+                { name: 'Spotify', url: 'https://open.spotify.com' },
                 { name: 'Tumblr', url: 'https://www.tumblr.com/' },
                 { name: 'Amazon', url: 'https://www.amazon.com.br' },
-                { name: 'Netflix', url: 'https://www.netflix.com' }
             ]
         }
     ]
