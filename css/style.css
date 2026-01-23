@@ -1,19 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100;400&display=swap');
-/* @import url('https://fonts.googleapis.com/css2?family=Handjet:wght,ELSH@100..900,2&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Rationale&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap');
 
 /* V A R I A B L E S */
 
 :root {
+/* Font Families */
+  /* --font-primary: 'Antonio', sans-serif; */
+  --font-primary: "Radio Canada", sans-serif;
+  --font-secondary: 'Rationale', monospace;  
+
   /* Font sizes  */
-  --fsg: 135px; /* Time and Greetings */
+  --fsg: 150px; /* Time */
   --fsm: 50px; /* Date */
   --fsd: 25px; /* Stardate (CUSTOM)*/
   --fse: 20px; /* (CUSTOM)*/
-  --fss: 25px; /* Greetings and Weather widger */
+  --fss: 25px; /* Greetings and Weather widget */
   --fses: 16px; /* Links List */
 
   /* Light theme  */
-  --accent: #654bc4; /* Hover color */
+  --accent: #C4864B; /* Hover color */
   --bg: #E0C6A496; /* Background color */
   --sbg: #e4e6e6; /* Cards color */
   --fg: #3a3a3a; /* Foreground color */
@@ -31,7 +37,7 @@
 
 /* Dark theme  */
 .darktheme {
-  --accent: #654bc4; /* Hover color */
+  --accent: #704E26; /* Hover color */
   --bg: #1D1520D3; /* Background color */
   --sbg: #201e21; /* Cards color */
   --fg: #DBCDA6; /* Foreground color */
@@ -49,7 +55,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Antonio', sans-serif;
+  font-family: var(--font-primary);
   transition: 0.2s ease-in-out;
 }
 
@@ -103,7 +109,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: center;  
 }
 
 .weatherBlock {
@@ -139,6 +145,24 @@ body {
   font-size: var(--fsg);
   font-weight: bolder;
   color: var(--fg);
+  font-family: var(--font-secondary);
+}
+
+#ampm {
+  font-size: var(--fsm);
+  font-weight: bold;
+  color: var(--fg);
+  font-family: var(--font-secondary);
+  margin-left: 5px;
+}
+
+#gmt {
+  font-size: var(--fses);
+  font-weight: bold;
+  color: var(--fg);
+  font-family: var(--font-secondary);
+  margin-top: -20px;
+  margin-bottom: 2em;
 }
 
 #month,
@@ -147,6 +171,7 @@ body {
   font-size: var(--fsm);
   font-weight: bold;
   color: var(--fg);
+  font-family: var(--font-secondary);
 }
 
 #stardate {
@@ -157,7 +182,7 @@ body {
 
 #earth {
   font-size: var(--fse);
-  font-weight: bold;
+  font-weight: 500;
   color: var(--fg);
 }
 
@@ -167,6 +192,7 @@ body {
 
 #greetings {
   font-size: var(--fss);
+  font-weight: 300;
   color: var(--fg);
 } 
 
@@ -175,6 +201,8 @@ body {
   font-size: var(--fse);
   color: var(--fg);
   margin-top: 10px;
+  font-weight: 300;
+
 }
 
 .weather-icon img {

@@ -16,7 +16,7 @@ function displayClock() {
   ];
 
   // Set to true to use a 12 hour date format
-  var format_12hour = false;
+  var format_12hour = true;
 
   var d = new Date();
   var yy = d.getFullYear();
@@ -34,9 +34,11 @@ function displayClock() {
 
   document.getElementById('hour').innerText = hh;
   document.getElementById('separator').innerHTML = ' : ';
-  document.getElementById('minutes').innerText = min + ampm;
+  document.getElementById('minutes').innerText = min;
+  document.getElementById('ampm').innerText = ampm;
 
   document.getElementById('earth').innerText = "On Earth: ";
+  document.getElementById('gmt').innerText = "GMT -3:00";
 
   document.getElementById('month').innerText = mm;
   document.getElementById('day').innerText = dd;
