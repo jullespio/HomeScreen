@@ -1,13 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rationale&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap');
 
 /* V A R I A B L E S */
 
 :root {
 /* Font Families */
   /* --font-primary: 'Antonio', sans-serif; */
-  --font-primary: "Radio Canada", sans-serif;
+  --font-primary: "Antonio", sans-serif;
   --font-secondary: 'Rationale', monospace;  
 
   /* Font sizes  */
@@ -42,7 +41,7 @@
   --sbg: #201e21; /* Cards color */
   --fg: #DBCDA6; /* Foreground color */
   --tp: rgba(0, 0, 0, 0.0); 
-  --sfg: #3a3a3a; /* Secondary Foreground color */
+  --sfg: #444242; /* Secondary Foreground color */
   --imgcol: linear-gradient(
     rgba(0, 0, 0, 0.7),
     rgba(0, 0, 0, 0.7)
@@ -306,11 +305,16 @@ body {
   margin-top: 1px;
   padding: 6px 12px;
   border-radius: 5px;
-  font-weight: bold;
+  /* font-weight: bold; */
+
+  text-transform: uppercase;
+  letter-spacing: 0.15rem; 
+  /* font-weight: 300;   */
+
 }
 .list__link:hover {
   background-color: var(--accent);
-  color: var(--sfg);
+  color: var(--fg);
 }
 
 
