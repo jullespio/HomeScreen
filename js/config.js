@@ -2,8 +2,8 @@ const config = {
     user: 'Captain.',
     weather: {
         apiKey: '48a3f427264d5948fd66cc7a0b5696ec',
-        latitude: 0.035850,
-        longitude: -51.062210,
+        latitude: 0.0027250,
+        longitude: -51.0723169,
         tempUnit: 'C'
     },
     bookmarks: [

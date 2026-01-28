@@ -12,14 +12,16 @@
   /* Font sizes  */
   --fsg: 150px; /* Time */
   --fsm: 50px; /* Date */
-  --fsd: 25px; /* Stardate (CUSTOM)*/
-  --fse: 20px; /* (CUSTOM)*/
+  --fsd: 25px; /* Stardate Greetings (CUSTOM)*/
+  --fse: 20px; /* Stardate / Earth (CUSTOM)*/
   --fss: 25px; /* Greetings and Weather widget */
   --fses: 16px; /* Links List */
+  --fst: 14px; /* Feels like (CUSTOM) */
+  --fstt: 12px; /* Sensor sweep (CUSTOM) */
 
   /* Light theme  */
   --accent: #C4864B; /* Hover color */
-  --bg: #E0C6A496; /* Background color */
+  --bg: #FF910096; /* Background color */
   --sbg: #e4e6e6; /* Cards color */
   --fg: #3a3a3a; /* Foreground color */
   --tp: rgba(0, 0, 0, 0.0); 
@@ -118,6 +120,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 20px;
+
 }
 .weatherBlock__date {
   display: flex;
@@ -130,6 +134,20 @@ body {
   align-items: center;
   justify-content: center;
   margin-top: 30px;
+}
+
+.weatherBlock__weather #feels-like {
+  font-size: var(--fst);
+  opacity: 0.8;
+  color: var(--fg);
+  margin-left: 15px;
+}
+
+#last-updated {
+  font-size: var(--fstt);
+  opacity: 0.8;
+  color: var(--fg);
+  margin-top: 5px;
 }
 
 .clock {

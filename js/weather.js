@@ -1,6 +1,8 @@
 const iconElement = document.querySelector('.weather-icon');
 const tempElement = document.querySelector('.temperature-value p');
+const feelsLikeElement = document.querySelector('#feels-like');
 const descElement = document.querySelector('.temperature-description p');
+const lastUpdatedElement = document.querySelector('#last-updated');
 
 // App data
 const weather = {};
@@ -17,6 +19,12 @@ const key = config.weather.apiKey;
 
 // Set Position function
 setPosition();
+
+// Automated Sensor Sweep: Refreshes every 20 minutes
+setInterval(function() {
+    console.log("Commencing scheduled atmospheric scan...");
+    setPosition();
+}, 1200000);
 
 function setPosition(position) {
   // Here you can change your position
@@ -40,12 +48,22 @@ function getWeather(latitude, longitude) {
             return response.json();
         })
         .then(function (data) {
-            let celsius = Math.floor(data.main.temp - KELVIN);
-            weather.temperature.value =
-                tempUnit == 'C' ? celsius : (celsius * 9) / 5 + 32;
+            let temp_base_k = data.main.temp;
+            let temp_feels_k = data.main.feels_like;
+
+            const processTemp = (kelvin) => {
+                let celsius = Math.floor(kelvin - KELVIN);
+                return tempUnit === 'C' ? celsius : (celsius * 9) / 5 + 32;
+            };
+
+            weather.temperature.value = processTemp(temp_base_k);
+            weather.temperature.feelsLike = processTemp(temp_feels_k);
+
             weather.description = data.weather[0].description;
+            weather.humidity = data.main.humidity;
             weather.iconId = data.weather[0].icon;
-            displayWeather();
+            
+            displayWeather();        
         })
         .catch(function (error) {
             console.log('Error fetching weather data:', error);
@@ -57,6 +75,20 @@ function getWeather(latitude, longitude) {
 // Display Weather info
 function displayWeather() {
   iconElement.innerHTML = `<img src="icons/OneDark/${weather.iconId}.png"/>`;
+  
+  // Main Temperature
   tempElement.innerHTML = `${weather.temperature.value}°<span class="darkfg">${tempUnit}</span>`;
+  
+  // Dedicated "Feels Like" display
+  if (feelsLikeElement) {
+    feelsLikeElement.innerHTML = `feels like ${weather.temperature.feelsLike}° / humidity: ${weather.humidity}%`;
+  }
+
+  if (lastUpdatedElement) {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        lastUpdatedElement.innerHTML = `last scan: ${timeString}`;
+    }
+
   descElement.innerHTML = weather.description;
 }
