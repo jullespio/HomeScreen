@@ -26,6 +26,11 @@
   --fg: #3a3a3a; /* Foreground color */
   --tp: rgba(0, 0, 0, 0.0); 
   --sfg: #3a3a3a; /* Sceondary Foreground color */
+  --glow: 
+    0 0 4px rgba(58, 58, 58, 0.8),  /* Immediate light bleed */
+    0 0 12px rgba(58, 58, 58, 0.5), /* Mid-range diffusion */
+    0 0 25px rgba(58, 58, 58, 0.3); /* Distant ambient glow */
+
 
   /* Image background  */
   --imgbg: url(../img/pom.jpg);
@@ -48,6 +53,10 @@
     rgba(0, 0, 0, 0.7),
     rgba(0, 0, 0, 0.7)
   ); /* Filter color */
+  --glow: 
+    0 0 4px rgba(219, 205, 166, 0.8),  /* Immediate light bleed */
+    0 0 12px rgba(219, 205, 166, 0.5), /* Mid-range diffusion */
+    0 0 25px rgba(219, 205, 166, 0.3); /* Distant ambient glow */
 }
 
 /* S T Y L E S */
@@ -164,6 +173,15 @@ body {
   color: var(--fg);
   font-family: var(--font-secondary);
 }
+
+#hour,
+#separator,
+#minutes, 
+#ampm {
+  text-shadow: var(--glow);
+}
+
+
 
 #ampm {
   font-size: var(--fsm);
