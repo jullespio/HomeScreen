@@ -3,6 +3,7 @@ const tempElement = document.querySelector('.temperature-value p');
 const feelsLikeElement = document.querySelector('#feels-like');
 const descElement = document.querySelector('.temperature-description p');
 const lastUpdatedElement = document.querySelector('#last-updated');
+const sunElement = document.querySelector('#sun');
 
 // App data
 const weather = {};
@@ -55,13 +56,29 @@ function getWeather(latitude, longitude) {
                 let celsius = Math.floor(kelvin - KELVIN);
                 return tempUnit === 'C' ? celsius : (celsius * 9) / 5 + 32;
             };
-
+            
             weather.temperature.value = processTemp(temp_base_k);
             weather.temperature.feelsLike = processTemp(temp_feels_k);
+
+            let sunrise_base = data.sys.sunrise;
+            let sunset_base = data.sys.sunset;
+
+            const formatTime = (timestamp) => {
+                // JavaScript expects milliseconds, but OWM provides seconds
+                let date = new Date(timestamp * 1000);
+                return date.toLocaleTimeString([], { 
+                    hour: '2-digit', 
+                    minute: '2-digit',
+                    hour12: true // Set to true for AM/PM format
+                });
+            };
 
             weather.description = data.weather[0].description;
             weather.humidity = data.main.humidity;
             weather.iconId = data.weather[0].icon;
+
+            weather.sunrise = formatTime(sunrise_base);
+            weather.sunset = formatTime(sunset_base);
             
             displayWeather();        
         })
@@ -81,13 +98,17 @@ function displayWeather() {
   
   // Dedicated "Feels Like" display
   if (feelsLikeElement) {
-    feelsLikeElement.innerHTML = `feels like ${weather.temperature.feelsLike}° / humidity: ${weather.humidity}%`;
+    feelsLikeElement.innerHTML = `feels like ${weather.temperature.feelsLike}° | humidity: ${weather.humidity}%`;
   }
 
   if (lastUpdatedElement) {
         const now = new Date();
         const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         lastUpdatedElement.innerHTML = `last scan: ${timeString}`;
+    }
+
+    if (sunElement) {
+        sunElement.innerHTML = `sunrise: ${weather.sunrise} | sunset: ${weather.sunset}`;
     }
 
   descElement.innerHTML = weather.description;

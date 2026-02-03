@@ -1,20 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rationale&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&display=swap');
 
 /* V A R I A B L E S */
 
 :root {
 /* Font Families */
-  /* --font-primary: 'Antonio', sans-serif; */
-  --font-primary: "Antonio", sans-serif;
-  --font-secondary: 'Rationale', monospace;  
+  --font-primary: 'Antonio', sans-serif;
+  --font-secondary: 'Rationale', monospace;
+  --font-special: 'ZCOOL QingKe HuangYou', sans-serif;  
 
   /* Font sizes  */
-  --fsg: 150px; /* Time */
+  --fsg: 140px; /* Time */
   --fsm: 50px; /* Date */
-  --fsd: 25px; /* Stardate Greetings (CUSTOM)*/
-  --fse: 20px; /* Stardate / Earth (CUSTOM)*/
-  --fss: 25px; /* Greetings and Weather widget */
+  --fsd: 30px; /* Stardate & Temp values (CUSTOM)*/
+  --fse: 20px; /* Stardate Greetings & Earth (CUSTOM)*/
+  --fss: 25px; /* Greetings & Weather widget */
   --fses: 16px; /* Links List */
   --fst: 14px; /* Feels like (CUSTOM) */
   --fstt: 12px; /* Sensor sweep (CUSTOM) */
@@ -149,8 +150,15 @@ body {
   margin-left: 15px;
 }
 
-#last-updated {
+.weatherBlock__weather #last-updated {
   font-size: var(--fstt);
+  opacity: 0.8;
+  color: var(--fg);
+  margin-top: 5px;
+}
+
+.weatherBlock__weather #sun {
+  font-size: var(--fst);
   opacity: 0.8;
   color: var(--fg);
   margin-top: 5px;
@@ -168,7 +176,7 @@ body {
   font-size: var(--fsg);
   font-weight: bolder;
   color: var(--fg);
-  font-family: var(--font-secondary);
+  font-family: var(--font-special);
 }
 
 #hour,
@@ -177,8 +185,6 @@ body {
 #ampm {
   text-shadow: var(--glow);
 }
-
-
 
 #ampm {
   font-size: var(--fsm);
@@ -206,11 +212,11 @@ body {
   font-family: var(--font-secondary);
 }
 
-#stardate {
+/* #stardate {
   font-size: var(--fsd);
   font-weight: bold;
   color: var(--fg);  
-}
+} */
 
 #earth {
   font-size: var(--fse);
@@ -229,7 +235,7 @@ body {
 } 
 
 
-#greetings_stardate {
+#stardate {
   font-size: var(--fse);
   color: var(--fg);
   margin-top: 10px;
@@ -238,12 +244,12 @@ body {
 }
 
 .weather-icon img {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
 }
 
 .temperature-value p {
-  font-size: var(--fss);
+  font-size: var(--fsd);
   font-weight: bolder;
   margin-left: 15px;
   color: var(--fg);
