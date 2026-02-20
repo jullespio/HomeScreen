@@ -229,9 +229,10 @@ body {
 }
 
 #greetings {
-  font-size: var(--fss);
+  font-size: var(--fse);
   font-weight: 300;
   color: var(--fg);
+  text-align: center;
 } 
 
 

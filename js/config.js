@@ -1,5 +1,5 @@
 const config = {
-    user: 'Captain.',
+    user: 'Captain',
     weather: {
         apiKey: '48a3f427264d5948fd66cc7a0b5696ec',
         latitude: 0.0027250,
