@@ -34,8 +34,8 @@
 
   /* Image background  */
   /* --imgbg: url(../img/pom.jpg); */
-  /* --imgbg: url(../img/starbase1.jpg); */
-  --imgbg: url(../img/nebula.jpg);
+  --imgbg: url(../img/starbase1.jpg);
+  /* --imgbg: url(../img/nebula.jpg); */
 
   --imgcol: linear-gradient(
     rgba(255, 255, 255, 0.7),
