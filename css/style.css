@@ -34,12 +34,13 @@
 
   /* Image background  */
   /* --imgbg: url(../img/pom.jpg); */
-  --imgbg: url(../img/starbase1.jpg);
+  /* --imgbg: url(../img/starbase1.jpg); */
   /* --imgbg: url(../img/nebula.jpg); */
+  --imgbg: url(../img/nebula.png);
 
   --imgcol: linear-gradient(
-    rgba(255, 255, 255, 0.7),
-    rgba(255, 255, 255, 0.7)
+    rgba(221 206 240 / 0.7),
+    rgba(221 206 240 / 0.7)
   ); /* Filter color */
 }
 
@@ -52,9 +53,10 @@
   --tp: rgba(0, 0, 0, 0.0); 
   --sfg: #444242; /* Secondary Foreground color */
   --imgcol: linear-gradient(
-    rgba(0, 0, 0, 0.7),
-    rgba(0, 0, 0, 0.7)
-  ); /* Filter color */
+     rgba(21, 7, 52, 0.42), 
+     rgba(20 19 19 / 0.76) 
+     );  
+  /* Filter color */
   --glow: 
     1px 1px 2px rgba(0, 0, 0, 0.5),    /* Contrast drop-shadow */
     0 0 8px #DBCDA6;                    /* Central glow */}
