@@ -105,7 +105,64 @@ body {
   grid-template-rows: repeat(4, 1fr);
   grid-gap: 30px;
   padding: 20px;
+  position: relative;
 }
+
+/* Shared base properties for top and bottom corner bracket pairs */
+.container::before,
+.container::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 28px;
+  border-color: var(--lcars-gold, #ffb700);
+  border-style: solid;
+  opacity: 0.65;
+  pointer-events: none;
+  z-index: 5;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+
+  /* Masks the middle section, leaving 28px bracket arms on the left and right */
+  -webkit-mask-image: linear-gradient(
+    to right, 
+    #000 28px, 
+    transparent 28px, 
+    transparent calc(100% - 28px), 
+    #000 calc(100% - 28px)
+  );
+  mask-image: linear-gradient(
+    to right, 
+    #000 28px, 
+    transparent 28px, 
+    transparent calc(100% - 28px), 
+    #000 calc(100% - 28px)
+  );
+}
+
+/* Top-Left and Top-Right Corners */
+.container::before {
+  top: 0;
+  border-width: 2px 2px 0 2px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+/* Bottom-Left and Bottom-Right Corners */
+.container::after {
+  bottom: 0;
+  border-width: 0 2px 2px 2px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+/* Synchronized illumination glow when cursor enters display bounds */
+.container:hover::before,
+.container:hover::after {
+  opacity: 1;
+  filter: drop-shadow(0 0 5px var(--lcars-gold, #ffb700));
+}
+
 
 .card {
   background-color: var(--tp);
@@ -117,7 +174,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;  
+  justify-content: center;
+  position: relative;
 }
 
 .weatherBlock {
@@ -269,6 +327,14 @@ body {
   margin-top: 10px;
   font-weight: 300;
 }
+
+/* Display hotkey hint on hover without shifting layout */
+.list__link[href*="gemini"]::after { content: " [G]"; opacity: 0.5; }
+.list__link[href*="mynoise"]::after { content: " [M]"; opacity: 0.5; }
+.list__link[href*="behance"]::after { content: " [B]"; opacity: 0.5; }
+.list__link[href*="spotify"]::after { content: " [S]"; opacity: 0.5; }
+.list__link[href*="tumblr"]::after  { content: " [T]"; opacity: 0.5; }
+.list__link[href*="amazon"]::after  { content: " [A]"; opacity: 0.5; }
 
 .weather-icon img {
   width: 80px;
