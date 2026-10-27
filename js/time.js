@@ -1,48 +1,54 @@
-window.onload = displayClock();
+window.onload = displayClock;
+
 function displayClock() {
   const monthNames = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
+    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
   ];
 
-  // Set to true to use a 12 hour date format
-  var format_12hour = true;
+  // Set to true for 12-hour format, false for Starfleet 24-hour format
+  const format_12hour = false;
 
-  var d = new Date();
-  var yy = d.getFullYear();
-  var mm = monthNames[d.getMonth()];
-  var dd = d.getDate();
-  var min = (mins = ('0' + d.getMinutes()).slice(-2));
-  var hh = d.getHours();
-  var ampm = '';
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = monthNames[date.getMonth()];
+  const day = date.getDate();
+
+  let hour = date.getHours();
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+
+  // DOM Element References
+  const hourEl = document.getElementById('hour');
+  const separatorEl = document.getElementById('separator');
+  const minutesEl = document.getElementById('minutes');
+  const ampmEl = document.getElementById('ampm');
+  const suffixEl = document.getElementById('suffix');
+  const utcEl = document.getElementById('utc');
 
   if (format_12hour) {
-    ampm = hh >= 12 ? ' pm' : ' am';
-    hh = hh % 12;
-    hh = hh ? hh : 12; //show mod 0 as 12
+    const period = hour >= 12 ? ' pm' : ' am';
+    hour = hour % 12 || 12;
+
+    hourEl.innerText = String(hour);
+    if (separatorEl) separatorEl.style.display = 'inline';
+    if (ampmEl) ampmEl.innerText = period;
+    if (suffixEl) suffixEl.innerText = '';
+  } else {
+    // Starfleet 24h Mode
+    hourEl.innerText = String(hour).padStart(2, '0');
+    if (separatorEl) separatorEl.style.display = 'none';
+    if (ampmEl) ampmEl.innerText = '';
+    if (suffixEl) suffixEl.innerText = 'h';
   }
 
-  document.getElementById('hour').innerText = hh;
-  document.getElementById('separator').innerHTML = ' : ';
-  document.getElementById('minutes').innerText = min;
-  document.getElementById('ampm').innerText = ampm;
+  minutesEl.innerText = minutes;
 
-  document.getElementById('earth').innerText = "On Earth: ";
-  document.getElementById('gmt').innerText = "GMT -3:00";
+  if (utcEl) utcEl.innerText = 'UTC -3:00';
 
-  document.getElementById('month').innerText = mm;
-  document.getElementById('day').innerText = dd;
-  document.getElementById('year').innerText = ', ' + yy;
+  document.getElementById('earth').innerText = 'On Earth: ';
+  document.getElementById('month').innerText = month;
+  document.getElementById('day').innerText = day;
+  document.getElementById('year').innerText = ', ' + year;
 
   setTimeout(displayClock, 1000);
 }
