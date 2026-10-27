@@ -42,14 +42,14 @@
 
 /* Dark theme  */
 .darktheme {
-  --accent: #261E4180; /* Hover color */
+  --accent: #411E2980; /* Hover color */
   --bg: #1D1520D3; /* Background color */
   --sbg: #201e21; /* Cards color */
   --fg: #DBCDA6; /* Foreground color */
   --tp: rgba(0, 0, 0, 0.0); 
   --sfg: #444242; /* Secondary Foreground color */
   --imgcol: linear-gradient(
-     rgba(21, 7, 52, 0.42), 
+     rgba(52 7 17 / 0.42), 
      rgba(20 19 19 / 0.76) 
      );  
   /* Filter color */
