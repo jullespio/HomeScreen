@@ -17,6 +17,16 @@ function displayClock() {
   let hour = date.getHours();
   const minutes = String(date.getMinutes()).padStart(2, '0');
 
+  // Calculate total elapsed seconds in the current 24-hour cycle
+  const totalSeconds = (date.getHours() * 3600) + (date.getMinutes() * 60) + date.getSeconds();
+  const dayPercentage = (totalSeconds / 86400) * 100;
+
+  // Update the progress fill bar
+  const progressFillEl = document.getElementById('day-progress-fill');
+  if (progressFillEl) {
+    progressFillEl.style.width = `${dayPercentage.toFixed(3)}%`;
+  }
+
   // DOM Element References
   const hourEl = document.getElementById('hour');
   const separatorEl = document.getElementById('separator');
