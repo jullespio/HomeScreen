@@ -290,12 +290,13 @@ body {
 
 /* Diurnal Progress Bar Styling */
 #day-progress-container {
-  width: 180px; /* Aligns cleanly beneath the clock/UTC block */
-  height: 2px;
-  background-color: rgba(219, 205, 166, 0.15); /* Subtile track line */
-  margin: 2px 0 12px 0;
+  width: 180px;
+  height: 3px;
+  background-color: rgba(219, 205, 166, 0.15);
+  margin: 4px 0 12px 0;
   border-radius: 1px;
-  overflow: hidden;
+  position: relative; /* CRITICAL: Binds tick marks directly to this bar */
+  overflow: visible;
 }
 
 #day-progress-fill {
@@ -304,6 +305,20 @@ body {
   background-color: var(--accent);
   box-shadow: var(--glow);
   transition: width 1s linear;
+  border-radius: 1px;
+}
+
+/* 6-Hour Quadrant Ticks (0600h, 1200h, 1800h) */
+.day-progress-mark {
+  position: absolute;
+  top: 50%;
+  height: 4px; /* Fixed height: extends 2px above and below the 3px bar */
+  width: 1px;
+  background-color: var(--lcars-gold, #FFB70098);
+  box-shadow: 0 0 3px var(--lcars-gold, #FFB70098);
+  z-index: 3;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
 }
 
 /* Subspace Telemetry Indicator */
