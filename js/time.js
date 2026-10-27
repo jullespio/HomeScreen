@@ -33,7 +33,7 @@ function displayClock() {
   const minutesEl = document.getElementById('minutes');
   const ampmEl = document.getElementById('ampm');
   const suffixEl = document.getElementById('suffix');
-  const utcEl = document.getElementById('utc');
+  const utcTextEl = document.getElementById('utc-text');
 
   if (format_12hour) {
     const period = hour >= 12 ? ' pm' : ' am';
@@ -53,8 +53,10 @@ function displayClock() {
 
   minutesEl.innerText = minutes;
 
-  if (utcEl) utcEl.innerText = 'UTC -3:00';
-
+  if (utcTextEl) {
+    utcTextEl.innerText = 'UTC -3:00';
+  }
+  
   document.getElementById('earth').innerText = 'On Earth: ';
   document.getElementById('month').innerText = month;
   document.getElementById('day').innerText = day;
