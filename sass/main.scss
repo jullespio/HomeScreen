@@ -1,60 +1,71 @@
-//   ___          _       
-//   | _ ) ___ _ _| |_ ___ 
-//   | _ \/ -_) ' \  _/ _ \
-//   |___/\___|_||_\__\___/
-//
-//   - Miguel R. Ávila
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rationale&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&display=swap');
 
-// This file is only for development 
-
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
-// Responsive
-$bp-largest: 75em;
+// --- BREAKPOINTS ---
 $bp-large: 68.75em;
-$bp-medium: 56.25em;
-$bp-small: 37.5em;
-$bp-smallest: 31.25em;
+
+/* --- V A R I A B L E S --- */
 
 :root {
-  // Fonts
-  --fsg: 150px;
-  --fsm: 85px;
-  --fss: 30px;
-  --fses: 18px;
+  /* Font Families */
+  --font-primary: 'Antonio', sans-serif;
+  --font-secondary: 'Rationale', monospace;
+  --font-special: 'ZCOOL QingKe HuangYou', sans-serif;  
 
-  --accent: #186efdaa;
+  /* Font sizes */
+  --fsg: 140px; /* Time */
+  --fsm: 50px;  /* Date */
+  --fsd: 30px;  /* Stardate & Temp values */
+  --fse: 20px;  /* Stardate Greetings & Earth */
+  --fss: 25px;  /* Greetings & Weather widget */
+  --fses: 16px; /* Links List */
+  --fst: 14px;  /* Feels like */
+  --fstt: 12px; /* Sensor sweep */
 
-  --bg: #f5f5f5;
+  /* Light theme */
+  --accent: #C4864B;
+  --bg: #FF910096;
   --sbg: #e4e6e6;
   --fg: #3a3a3a;
+  --sfg: #3a3a3a;
+  --tp: rgba(0, 0, 0, 0.0); 
+  --glow: 
+    1px 1px 2px rgba(0, 0, 0, 0.5), 
+    0 0 8px #3a3a3a;
 
-  --imgbg: url(/img/wal.jpg);
-
-  --imgcol: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7));
-
-  @media only screen and (max-width: $bp-large) {
-    --fsg: 100px;
-    --fsm: 65px;
-    --fss: 20px;
-  }
+  /* Image background */
+  --imgbg: url(../img/skyrim1.png);
+  --imgcol: linear-gradient(
+    rgba(221 206 240 / 0.7),
+    rgba(221 206 240 / 0.7)
+  );
 }
+
+/* Dark theme */
 .darktheme {
-  --accent: #186efd60;
-
-  --bg: #1e1f21;
-  --sbg: #2c2d31;
-  --fg: #d8dee9;
-
-  --imgcol: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+  --accent: #411E2980;
+  --bg: #1D1520D3;
+  --sbg: #201e21;
+  --fg: #DBCDA6;
+  --sfg: #444242;
+  --tp: rgba(0, 0, 0, 0.0); 
+  --imgcol: linear-gradient(
+    rgba(52 7 17 / 0.42), 
+    rgba(20 19 19 / 0.76) 
+  );  
+  --glow: 
+    1px 1px 2px rgba(0, 0, 0, 0.5), 
+    0 0 8px #DBCDA6;
 }
+
+/* --- S T Y L E S --- */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 13.5px;
-
+  font-family: var(--font-primary);
   transition: 0.2s ease-in-out;
 }
 
@@ -62,9 +73,10 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: var(--bg);
-
   background-image: var(--imgcol), var(--imgbg);
-
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,100 +87,98 @@ body {
   margin: 2em 2em 0 0;
   right: 0;
   top: 0;
-
   color: var(--fg);
-
   border: none;
-  border-radius: 5px;
-
-  padding: 10px;
   cursor: pointer;
-
   background-color: #00000000;
 
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  &__icon {
+    width: 25px;
+    height: 25px;
+  }
 }
 
-.bicon {
-  width: 26px;
-  height: 26px;
-}
 .container {
-  width: 150vh;
+  width: 145vh;
   height: 85vh;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
-
   grid-gap: 30px;
   padding: 20px;
+  position: relative;
 
-  @media only screen and (max-width: $bp-large) {
-    grid-gap: 20px;
-    padding: 40px;
+  /* Tactical Viewport Frame (LCARS Outer Corner Framing) */
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 28px;
+    border-color: var(--lcars-gold, #FFB7008A);
+    border-style: solid;
+    opacity: 0.45;
+    pointer-events: none;
+    z-index: 5;
+    transition: opacity 0.3s ease, filter 0.3s ease;
+
+    -webkit-mask-image: linear-gradient(
+      to right, 
+      #000 28px, 
+      transparent 28px, 
+      transparent calc(100% - 28px), 
+      #000 calc(100% - 28px)
+    );
+    mask-image: linear-gradient(
+      to right, 
+      #000 28px, 
+      transparent 28px, 
+      transparent calc(100% - 28px), 
+      #000 calc(100% - 28px)
+    );
   }
 
-  & > * {
-    width: 100%;
+  &::before {
+    top: 0;
+    border-width: 2px 2px 0 2px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+
+  &::after {
+    bottom: 0;
+    border-width: 0 2px 2px 2px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+
+  &:hover::before,
+  &:hover::after {
+    opacity: 1;
+    filter: drop-shadow(0 0 5px var(--lcars-gold, #ffb700));
   }
 }
 
 .card {
-  box-shadow: 0 5px 7px rgba(#000000, 0.35);
-  border-radius: 5px;
-  background-color: var(--sbg);
-
-  &:hover {
-    transform: translateY(-0.2rem);
-    box-shadow: 0 10px 10px rgba(#000000, 0.35);
-  }
+  background-color: var(--tp);
 }
 
-.fblock {
+/* --- CHRONOMETER ARRAY --- */
+
+.timeBlock {
   grid-row: 1 / span 2;
   grid-column: 1 / span 2;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  @media only screen and (max-width: $bp-large) {
-    grid-row: 1 / span 2;
-    grid-column: 1 / span 4;
-  }
-}
-
-.sblock {
-  grid-column: 3 / span 2;
-  grid-row: 1 / span 2;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  &__date {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
-  }
-  &__weather {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  @media only screen and (max-width: $bp-large) {
-    display: none;
-  }
+  position: relative;
 }
 
 .clock {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
 }
 
@@ -178,25 +188,153 @@ body {
   font-size: var(--fsg);
   font-weight: bolder;
   color: var(--fg);
+  font-family: var(--font-special);
+  line-height: 1;
 }
 
-#month,
-#day {
-  font-size: var(--fsm);
+#hour,
+#separator,
+#minutes, 
+#ampm,
+#suffix {
+  text-shadow: var(--glow);
+}
+
+#ampm,
+#suffix {
+  font-size: calc(var(--fsg) * 0.5);
   font-weight: bold;
   color: var(--fg);
+  font-family: var(--font-secondary);
+  margin-left: 2px;
+  text-transform: lowercase;
+  vertical-align: baseline;
 }
-#day {
-  margin-left: 20px;
+
+/* Diurnal Progress Telemetry */
+#day-progress-container {
+  width: 180px;
+  height: 3px;
+  background-color: rgba(219, 205, 166, 0.15);
+  margin: 4px 0 12px 0;
+  border-radius: 1px;
+  position: relative;
+  overflow: visible;
+}
+
+#day-progress-fill {
+  height: 100%;
+  width: 0%;
+  background-color: var(--accent);
+  box-shadow: var(--glow);
+  transition: width 1s linear;
+  border-radius: 1px;
+}
+
+.day-progress-mark {
+  position: absolute;
+  top: 50%;
+  height: 4px;
+  width: 1px;
+  background-color: var(--lcars-gold, #FFB70098);
+  box-shadow: 0 0 3px var(--lcars-gold, #FFB70098);
+  z-index: 3;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+#utc {
+  font-size: var(--fses);
+  font-weight: bold;
+  color: var(--fg);
+  font-family: var(--font-secondary);
+  margin-top: 0.05em;
+  margin-bottom: 2em;
+
+  #subspace {
+    opacity: 0.7;
+    font-weight: normal;
+    margin-left: 0.2em;
+    transition: opacity 0.3s ease;
+  }
+}
+
+#stardate {
+  font-size: var(--fse);
+  color: var(--fg);
+  margin-top: 10px;
+  font-weight: 300;
 }
 
 #greetings {
-  font-size: var(--fses);
+  font-size: var(--fse);
+  font-weight: 300;
   color: var(--fg);
+  text-align: center;
+}
 
-  @media only screen and (max-width: $bp-large) {
-    font-size: var(--fss);
+/* --- ENVIRONMENTAL TELEMETRY ARRAY --- */
+
+.weatherBlock {
+  grid-column: 3 / span 2;
+  grid-row: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+
+  &__date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
   }
+
+  &__weather {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+
+    #feels-like,
+    #sun {
+      font-size: var(--fst);
+      opacity: 0.8;
+      color: var(--fg);
+      margin-left: 15px;
+    }
+
+    #last-updated {
+      font-size: var(--fstt);
+      opacity: 0.8;
+      color: var(--fg);
+      margin-top: 5px;
+    }
+
+    #sun {
+      margin-top: 5px;
+    }
+  }
+}
+
+#earth {
+  font-size: var(--fse);
+  font-weight: 500;
+  color: var(--fg);
+}
+
+#month,
+#day,
+#year {
+  font-size: var(--fsm);
+  font-weight: bold;
+  color: var(--fg);
+  font-family: var(--font-secondary);
+}
+
+#day {
+  margin-left: 20px;
 }
 
 .weather-icon img {
@@ -204,115 +342,83 @@ body {
   height: 80px;
 }
 
-.temperature {
-  &-value p {
-    font-size: var(--fss);
-    font-weight: bolder;
-    margin-left: 15px;
-    color: var(--fg);
-  }
-  &-description p {
-    font-size: var(--fss);
-    margin-left: 15px;
-    color: var(--fg);
-  }
+.temperature-value p {
+  font-size: var(--fsd);
+  font-weight: bolder;
+  margin-left: 15px;
+  color: var(--fg);
 }
 
-.qlink {
+.temperature-description p {
+  font-size: var(--fss);
+  margin-left: 15px;
+  color: var(--fg);
+}
+
+/* --- NAVIGATION MATRIX & LINKS --- */
+
+.buttonLink {
   grid-row: 3 / span 2;
   grid-column: 1 / span 2;
-
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
-
   grid-gap: 30px;
-  padding: 30px;
-
-  @media only screen and (max-width: $bp-large) {
-    grid-row: 3 / span 2;
-    grid-column: 1 / span 4;
-
-    grid-gap: 40px;
-    padding: 20px;
-  }
-
-  &__icon {
-    width: 26px;
-    height: 26px;
-    color: var(--fg);
-  }
+  padding: 20px;
 
   &__link {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--sbg);
     width: 100%;
-    box-shadow: 0 5px 7px rgba(#000000, 0.35);
-    border-radius: 5px;
-    &-1 {
-      grid-row: 1;
-      grid-column: 1;
-    }
-    &-2 {
-      grid-row: 1;
-      grid-column: 2;
-    }
-    &-3 {
-      grid-row: 2;
-      grid-column: 1;
-    }
-    &-4 {
-      grid-row: 2;
-      grid-column: 2;
-    }
-    &-5 {
-      grid-row: 1;
-      grid-column: 3;
-    }
-    &-6 {
-      grid-row: 2;
-      grid-column: 3;
-    }
+    background-color: var(--tp);
+
+    &-1 { grid-row: 1; grid-column: 1; }
+    &-2 { grid-row: 1; grid-column: 2; }
+    &-3 { grid-row: 2; grid-column: 1; }
+    &-4 { grid-row: 2; grid-column: 2; }
+    &-5 { grid-row: 1; grid-column: 3; }
+    &-6 { grid-row: 2; grid-column: 3; }
 
     &:hover {
       background-color: var(--accent);
-      transform: translateY(-0.2rem);
 
-      box-shadow: 0 10px 10px rgba(#000000, 0.35);
-
-      & svg {
-        stroke: var(--fg);
+      svg {
+        stroke: var(--sfg);
       }
     }
   }
+
+  &__icon {
+    width: 23px;
+    height: 23px;
+    color: var(--fg);
+  }
 }
 
-.qlist {
+.list {
   display: flex;
   align-items: center;
   flex-direction: column;
 
-  @media only screen and (max-width: $bp-large) {
-    display: none;
-  }
-
   &__1 {
-    grid-column: 3;
+    grid-column: 3 / span 2;
     grid-row: 3 / span 2;
   }
+
   &__2 {
     grid-column: 4;
     grid-row: 3 / span 2;
   }
+
   &__head {
     margin-top: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     width: 30px;
     color: var(--fg);
     height: 30px;
   }
+
   &__link {
     text-decoration: none;
     font-size: var(--fses);
@@ -320,11 +426,56 @@ body {
     margin-top: 1px;
     padding: 6px 12px;
     border-radius: 5px;
-    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
 
     &:hover {
       background-color: var(--accent);
       color: var(--fg);
     }
+
+    /* Hotkey Telemetry Indicators */
+    &[href*="gemini"]::after  { content: " [G]"; opacity: 0.5; }
+    &[href*="mynoise"]::after { content: " [M]"; opacity: 0.5; }
+    &[href*="behance"]::after { content: " [B]"; opacity: 0.5; }
+    &[href*="spotify"]::after { content: " [S]"; opacity: 0.5; }
+    &[href*="tumblr"]::after  { content: " [T]"; opacity: 0.5; }
+    &[href*="amazon"]::after  { content: " [A]"; opacity: 0.5; }
+  }
+}
+
+/* --- MEDIA QUERIES --- */
+
+@media only screen and (max-width: $bp-large) {
+  :root {
+    --fsg: 100px;
+    --fsm: 65px;
+    --fss: 20px;
+  }
+
+  .container {
+    grid-gap: 20px;
+    padding: 40px;
+  }
+
+  .timeBlock {
+    grid-row: 1 / span 2;
+    grid-column: 1 / span 4;
+  }
+
+  .weatherBlock,
+  .list {
+    display: none;
+  }
+
+  #greetings {
+    font-size: var(--fss);
+  }
+
+  .buttonLink {
+    grid-column: 1 / span 4;
+    grid-gap: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
   }
 }
