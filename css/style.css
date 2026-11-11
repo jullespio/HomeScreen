@@ -32,7 +32,7 @@
     0 0 8px #3a3a3a;                    /* Central glow */
 
   /* Image background  */
-  --imgbg: url(../img/skyrim1.png);
+  --imgbg: url(../img/skyrim3.png);
 
   --imgcol: linear-gradient(
     rgba(221 206 240 / 0.7),
